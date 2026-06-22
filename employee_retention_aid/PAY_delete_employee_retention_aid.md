@@ -3,7 +3,7 @@
 ## Endpoint
 
 ```http
-DELETE /api/v1/payroll/retention-aids/{id}
+DELETE /employee-retention-aids{id}
 ```
 
 ## Descripción
@@ -18,12 +18,7 @@ Elimina una ayuda de retención de empleado existente.
 
 ## Respuesta Exitosa
 
-```json
-{
-  "id": 1,
-  "message": "Retention aid deleted successfully"
-}
-```
+CODE 204, NO CONTENT
 
 ## Errores
 
@@ -31,9 +26,9 @@ Elimina una ayuda de retención de empleado existente.
 
 ```json
 {
-  "error": {
-    "code": "NOT_FOUND",
-    "message": "Retention aid record not found"
-  }
+  "success": false,
+  "data": null,
+  "message": "EmployeeRetentionAid with id 12 not found",
+  "error": "ValueError"
 }
 ```

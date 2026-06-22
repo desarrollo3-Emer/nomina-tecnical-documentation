@@ -3,7 +3,7 @@
 ## Endpoint
 
 ```http
-PATCH /api/v1/payroll/retention-aids/{id}
+PATCH /employee-retention-aids/{id}
 Content-Type: application/json
 ```
 
@@ -21,8 +21,10 @@ Actualiza campos de una ayuda de retención existente. Solo se deben enviar los 
 
 ```json
 {
-  "amount": 175000.00,
-  "end_date": "2026-07-15"
+  "concept_id": 10,
+  "amount": 100000,
+  "start_date": "2026-06-01",
+  "end_date": "2026-06-18"
 }
 ```
 
@@ -30,19 +32,23 @@ Actualiza campos de una ayuda de retención existente. Solo se deben enviar los 
 
 ```json
 {
-  "id": 1,
-  "identification_number": 1234567890,
-  "concept_id": 10,
-  "amount": 175000.00,
-  "start_date": "2026-06-01",
-  "end_date": "2026-07-15",
-  "message": "Retention aid updated successfully"
+  "success": true,
+  "data": {
+    "id": 10,
+    "identification_number": 12343454,
+    "concept_id": 10,
+    "amount": "500000.00",
+    "start_date": "2026-06-01",
+    "end_date": "2026-06-18"
+  },
+  "message": "OK",
+  "error": null
 }
 ```
 
 ## Validaciones
 
-- `amount`, si se envía, debe ser mayor que 0.
+- `amount`, si se envía, debe ser mayor que 0, y sin separadores de miles ni punto ni coma.
 - `end_date`, si se envía, debe ser mayor o igual a `start_date`.
 - Solo se puede actualizar una ayuda existente.
 
@@ -52,9 +58,9 @@ Actualiza campos de una ayuda de retención existente. Solo se deben enviar los 
 
 ```json
 {
-  "error": {
-    "code": "NOT_FOUND",
-    "message": "Retention aid record not found"
-  }
+  "success": false,
+  "data": null,
+  "message": "EmployeeRetentionAid with id 0 not found",
+  "error": "ValueError"
 }
 ```

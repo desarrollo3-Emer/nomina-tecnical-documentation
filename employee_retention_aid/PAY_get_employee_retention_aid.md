@@ -3,7 +3,7 @@
 ## Endpoint
 
 ```http
-GET /api/v1/payroll/retention-aids/{id}
+GET /employee-retention-aids/{id}
 ```
 
 ## Descripción
@@ -20,12 +20,17 @@ Retorna los datos de una ayuda de retención de empleado específica.
 
 ```json
 {
-  "id": 1,
-  "identification_number": 1234567890,
-  "concept_id": 10,
-  "amount": 150000.00,
-  "start_date": "2026-06-01",
-  "end_date": "2026-06-30"
+  "success": true,
+  "data": {
+    "id": 10,
+    "identification_number": 12343454,
+    "concept_id": 12,
+    "amount": "150000.00",
+    "start_date": "2026-06-17",
+    "end_date": "2026-06-18"
+  },
+  "message": "OK",
+  "error": null
 }
 ```
 
@@ -35,9 +40,9 @@ Retorna los datos de una ayuda de retención de empleado específica.
 
 ```json
 {
-  "error": {
-    "code": "NOT_FOUND",
-    "message": "Retention aid record not found"
-  }
+  "success": false,
+  "data": null,
+  "message": "EmployeeRetentionAid with id 9 not found",
+  "error": "ValueError"
 }
 ```

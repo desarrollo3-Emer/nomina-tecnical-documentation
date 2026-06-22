@@ -11,7 +11,7 @@ Define el servicio para asignar una novedad pendiente a nómina, actualizando `a
 ## Request
 
 ```http id="patch1"
-PATCH /api/v1/payroll/novelties/{novelty_id}
+PATCH /novelties/{novelty_id}
 ```
 
 ---
@@ -30,16 +30,8 @@ Actualiza una novedad específica para marcarla como asignada a nómina y regist
 
 ---
 
-# Headers requeridos
 
-```http
-Authorization: Bearer {token}
-Content-Type: application/json
-```
-
----
-
-# Body esperado
+# Body que se envia
 
 ```json id="patch2"
 {
@@ -83,7 +75,6 @@ Content-Type: application/json
   "start_date": "2026-06-01",
   "end_date": "2026-06-03",
   "assigned_a_payroll": true,
-  "message": "Novelty assigned to payroll successfully"
 }
 ```
 
@@ -111,28 +102,3 @@ Content-Type: application/json
 }
 ```
 
----
-
-## Actualización inválida
-
-```json id="patch6"
-{
-  "error": {
-    "code": "INVALID_UPDATE",
-    "message": "assigned_a_payroll must be true and amount_calculated must be provided"
-  }
-}
-```
-
----
-
-## Novedad ya asignada
-
-```json id="patch7"
-{
-  "error": {
-    "code": "NOVELTY_ALREADY_ASSIGNED",
-    "message": "Novelty is already assigned to payroll"
-  }
-}
-```

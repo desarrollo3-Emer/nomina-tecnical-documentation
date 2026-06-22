@@ -6,6 +6,8 @@ El presente documento describe el flujo funcional y técnico mediante el cual el
 
 Las novedades corresponden a conceptos variables que posteriormente serán utilizados durante el cálculo de la liquidación.
 
+La intencion de esta ruta es poder verificar que todas las novedades dentro de un periodo estan completamente diligenciadas, y con fechas asignadas para completar el proceso de PILA.
+
 ---
 
 # Endpoint de Consulta
@@ -33,14 +35,13 @@ Obtiene las novedades registradas para asociarlas a un período de nómina.
 | end_date    | date    | Sí          | fin del período de nómina                  |
 
 Espero recibir todas las novedades registradas entre las fechas dadas.
-(SERA UN PLUS UN CAMPO CHECK QUE VALIDE SI LA NOVEDAD YA FUE PROCESADA)
 
 ---
 
 # Ejemplo de Consulta
 
 ```http id="r44vkl"
-GET /api/v1/payroll/novelties?company_nit=1
+GET /api/v1/payroll/novelties?company_nit=1?start_date="2026-06-01"?end_date="2026-06-30"
 ```
 
 ---
@@ -48,9 +49,7 @@ GET /api/v1/payroll/novelties?company_nit=1
 # Ejemplo de Respuesta
 
 ```json id="o7tvb2"
-{
-  "company_nit": 123,
-  "absences": [
+ [
     {
       "id": 1001,
       "identification_number": 12345678,
@@ -92,7 +91,6 @@ GET /api/v1/payroll/novelties?company_nit=1
       "assigned_a_payroll": true
     }
   ]
-}
 ```
 
 ---

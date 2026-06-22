@@ -2,18 +2,19 @@
 
 # Objetivo
 
-Describe el servicio que retorna únicamente las novedades pendientes de nómina, es decir, aquellas cuyo `amount_calculated` es 0 y `assigned_a_payroll` es false.
+Describe el servicio que deberia retornar únicamente las novedades de un empleado pendientes de ser procesado en la nómina, es decir, aquellas cuyo `amount_calculated` es 0 y `assigned_a_payroll` es false.
 
 ---
 
 # Endpoint de Consulta
 
-## Request
+## Request a LUCIANA
 
-```http id="pending1"
-GET /api/v1/payroll/novelties/pending
+
+
+```http "
+GET /novelties/pending/{start_date}/{end_date}/{identification_number}
 ```
-
 ---
 
 # Descripción
@@ -29,18 +30,18 @@ Obtiene únicamente las novedades que aún no han sido asignadas a una nómina. 
 
 | Parámetro   | Tipo    | Obligatorio | Descripción                                |
 | ----------- | ------- | ----------- | ------------------------------------------ |
-| company_nit | varchar | Sí          | Identificador de la compañía               |
+| identification_number | varchar | Sí          | Identificador del empleado               |
 | start_date  | date    | Sí          | Inicio del período de nómina               |
 | end_date    | date    | Sí          | Fin del período de nómina                  |
 
-Solo se retornan novedades pendientes dentro del rango de fechas indicado.
+Solo se retornan novedades pendientes dentro del rango de fechas indicado y del empleado indicado
 
 ---
 
 # Ejemplo de Consulta
 
 ```http id="pending2"
-GET /api/v1/payroll/novelties/pending?company_nit=1&start_date=2026-06-01&end_date=2026-06-30
+GET /novelties/pending/2026-06-01/2026-06-30/12345678
 ```
 
 ---
@@ -48,9 +49,8 @@ GET /api/v1/payroll/novelties/pending?company_nit=1&start_date=2026-06-01&end_da
 # Ejemplo de Respuesta
 
 ```json id="pending3"
-{
-  "company_nit": 1,
-  "absences": [
+
+ [
     {
       "id": 1005,
       "identification_number": 12345678,
@@ -63,7 +63,7 @@ GET /api/v1/payroll/novelties/pending?company_nit=1&start_date=2026-06-01&end_da
     },
     {
       "id": 1006,
-      "identification_number": 87654321,
+      "identification_number": 12345678,
       "concept_name": "LICENCIA NO REMUNERADA",
       "days": 5.0,
       "amount_calculated": 0.00,
@@ -72,10 +72,27 @@ GET /api/v1/payroll/novelties/pending?company_nit=1&start_date=2026-06-01&end_da
       "assigned_a_payroll": false
     }
   ]
-}
+
 ```
 
 ---
+
+# Contrato de Respuesta
+
+La operación debe retornar una lista de novedades. Cada elemento de la lista debe incluir la siguiente información:
+
+| Campo | Tipo |
+|---------|---------|
+| identification_number | int |
+| concept_name | str |
+| days | Decimal |
+| amount_calculated | Decimal |
+| estimated_amount | Decimal |
+| start_date | date |
+| end_date | date |
+| id | int |
+| assigned_a_payroll | bool |
+
 
 # Validaciones del Servicio
 
@@ -87,26 +104,8 @@ GET /api/v1/payroll/novelties/pending?company_nit=1&start_date=2026-06-01&end_da
 
 ---
 
-# Posibles Errores
-
-## Período no encontrado
-
-```json id="pending4"
-{
-  "error": {
-    "code": "PERIOD_NOT_FOUND",
-    "message": "Payroll period not found"
-  }
-}
-```
-
----
-
 ## No hay novedades pendientes
 
 ```json id="pending5"
-{
-  "data": [],
-  "message": "No pending novelties found for the given period"
-}
+[]
 ```
