@@ -3,7 +3,7 @@
 ## Endpoint
 
 ```http
-GET /payrolls/contract/{contract_id}/period/{period_id}
+GET /payrolls/cc/{identification_number}/period/{period_id}
 ```
 
 ---
@@ -18,7 +18,7 @@ Retorna todas las nóminas asociadas a un contrato específico dentro de un per�
 
 | Parámetro   | Tipo    | Obligatorio | Descripción                   |
 | ----------- | ------- | ----------- | ----------------------------- |
-| contract_id | integer | Sí          | ID del contrato del empleado  |
+| identification_number | integer | Sí          | ID del contrato del empleado  |
 | period_id   | integer | Sí          | ID del período de nómina      |
 
 ---
@@ -26,7 +26,7 @@ Retorna todas las nóminas asociadas a un contrato específico dentro de un per�
 # Ejemplo de Request
 
 ```http
-GET /payrolls/contract/7/period/3
+GET /payrolls/cc/{identification_number}/period/{period_id}
 ```
 
 ---
