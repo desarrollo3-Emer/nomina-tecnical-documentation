@@ -40,31 +40,20 @@ GET /api/v1/payroll/concepts
 
 Obtiene el catálogo de conceptos disponibles para el registro de novedades dentro del proceso de nómina.
 
----
-
-<!-- # Headers
-
-```http id="u3v7tm"
-Authorization: Bearer {token}
-Content-Type: application/json
-```
-
----
-
-# Query Params
-
-| Parámetro   | Tipo    | Obligatorio | Descripción                                     |
-| ----------- | ------- | ----------- | ----------------------------------------------- |
-| company_id  | integer | No          | Filtra conceptos configurados para una compañía | -->
-
 
 ---
 
 # Ejemplo de Consulta
 
 ```http id="z2y8pl"
-GET /api/v1/payroll/concepts?active_only=true
+GET /payroll-concepts?is_retention_aid=false'
 ```
+
+---
+# Filtro: 
+
+Si envia el query is_retention_aid como true, solo devolvera los conceptos validos para ayudas de retencion 
+
 
 ---
 
@@ -77,26 +66,336 @@ Cada concepto contiene información funcional y de configuración utilizada por 
 # Ejemplo de Respuesta
 
 ```json id="w7u3bn"
-[
-  {
-    "name": "BONIFICACION",
-    "code": "BON100",
-    "id": 4,
-    "type_name": "DEVENGO",
-  }
-]
+{
+  "success": true,
+  "data": {
+    "concepts": [
+      {
+        "id": 4,
+        "code": "BON100",
+        "name": "Bonificacion",
+        "counts_for_vacations": false,
+        "affects_days_worked": false,
+        "affects_social_security": false,
+        "type_id": 1,
+        "type_name": "DEVENGO",
+        "is_vacation": false
+      },
+      {
+        "id": 10,
+        "code": "HEX200",
+        "name": "Horas_Extras_Fes_Diu_200",
+        "counts_for_vacations": false,
+        "affects_days_worked": false,
+        "affects_social_security": true,
+        "type_id": 1,
+        "type_name": "DEVENGO",
+        "is_vacation": false
+      },
+      {
+        "id": 11,
+        "code": "INC001",
+        "name": "Incapacidad",
+        "counts_for_vacations": false,
+        "affects_days_worked": true,
+        "affects_social_security": true,
+        "type_id": 1,
+        "type_name": "DEVENGO",
+        "is_vacation": false
+      },
+      {
+        "id": 12,
+        "code": "HRN035",
+        "name": "Hrs_Rec_Noc_35",
+        "counts_for_vacations": false,
+        "affects_days_worked": false,
+        "affects_social_security": true,
+        "type_id": 1,
+        "type_name": "DEVENGO",
+        "is_vacation": false
+      },
+      {
+        "id": 13,
+        "code": "HED125",
+        "name": "Hrs_Extras_Diu_125",
+        "counts_for_vacations": false,
+        "affects_days_worked": false,
+        "affects_social_security": true,
+        "type_id": 1,
+        "type_name": "DEVENGO",
+        "is_vacation": false
+      },
+      {
+        "id": 14,
+        "code": "HEN175",
+        "name": "Hrs_Extras_Noc_175",
+        "counts_for_vacations": false,
+        "affects_days_worked": false,
+        "affects_social_security": true,
+        "type_id": 1,
+        "type_name": "DEVENGO",
+        "is_vacation": false
+      },
+      {
+        "id": 15,
+        "code": "HEDF225",
+        "name": "Hrs_Extras_Dom_Fes_225",
+        "counts_for_vacations": false,
+        "affects_days_worked": false,
+        "affects_social_security": true,
+        "type_id": 1,
+        "type_name": "DEVENGO",
+        "is_vacation": false
+      },
+      {
+        "id": 16,
+        "code": "HENF275",
+        "name": "Hrs_Extras_Noc_Fes_275",
+        "counts_for_vacations": false,
+        "affects_days_worked": false,
+        "affects_social_security": true,
+        "type_id": 1,
+        "type_name": "DEVENGO",
+        "is_vacation": false
+      },
+      {
+        "id": 17,
+        "code": "HRN205",
+        "name": "Hrs_Extras_Fes_Diu_205",
+        "counts_for_vacations": false,
+        "affects_days_worked": false,
+        "affects_social_security": true,
+        "type_id": 1,
+        "type_name": "DEVENGO",
+        "is_vacation": false
+      },
+      {
+        "id": 18,
+        "code": "HRN205",
+        "name": "Hrs_Extras_Fes_Diu_115",
+        "counts_for_vacations": false,
+        "affects_days_worked": false,
+        "affects_social_security": true,
+        "type_id": 1,
+        "type_name": "DEVENGO",
+        "is_vacation": false
+      },
+      {
+        "id": 19,
+        "code": "HRN205",
+        "name": "Hrs_Extras_Fes_Diu_80",
+        "counts_for_vacations": false,
+        "affects_days_worked": false,
+        "affects_social_security": true,
+        "type_id": 1,
+        "type_name": "DEVENGO",
+        "is_vacation": false
+      },
+      {
+        "id": 20,
+        "code": "HRN205",
+        "name": "Hrs_Extras_Fes_Diu_255",
+        "counts_for_vacations": false,
+        "affects_days_worked": false,
+        "affects_social_security": true,
+        "type_id": 1,
+        "type_name": "DEVENGO",
+        "is_vacation": false
+      },
+      {
+        "id": 22,
+        "code": "AUXEXTRA",
+        "name": "Auxilio_Transporte_Extralegal",
+        "counts_for_vacations": false,
+        "affects_days_worked": false,
+        "affects_social_security": false,
+        "type_id": 1,
+        "type_name": "DEVENGO",
+        "is_vacation": false
+      },
+      {
+        "id": 69,
+        "code": "LR",
+        "name": "Licencia_Remunerada",
+        "counts_for_vacations": true,
+        "affects_days_worked": true,
+        "affects_social_security": true,
+        "type_id": 1,
+        "type_name": "DEVENGO",
+        "is_vacation": false
+      },
+      {
+        "id": 73,
+        "code": "CMS",
+        "name": "Comisiones",
+        "counts_for_vacations": false,
+        "affects_days_worked": false,
+        "affects_social_security": true,
+        "type_id": 1,
+        "type_name": "DEVENGO",
+        "is_vacation": false
+      },
+      {
+        "id": 74,
+        "code": "INC-ARP",
+        "name": "Incapacidad_Arp",
+        "counts_for_vacations": false,
+        "affects_days_worked": true,
+        "affects_social_security": true,
+        "type_id": 1,
+        "type_name": "DEVENGO",
+        "is_vacation": false
+      },
+      {
+        "id": 9,
+        "code": "AUS001",
+        "name": "Ausencia_No_Justificada",
+        "counts_for_vacations": false,
+        "affects_days_worked": true,
+        "affects_social_security": false,
+        "type_id": 2,
+        "type_name": "DEDUCCION",
+        "is_vacation": false
+      },
+      {
+        "id": 21,
+        "code": "LCNR",
+        "name": "Licencia_No_Remunerada",
+        "counts_for_vacations": false,
+        "affects_days_worked": true,
+        "affects_social_security": true,
+        "type_id": 2,
+        "type_name": "DEDUCCION",
+        "is_vacation": false
+      },
+      {
+        "id": 68,
+        "code": "DES",
+        "name": "Descuento",
+        "counts_for_vacations": false,
+        "affects_days_worked": false,
+        "affects_social_security": false,
+        "type_id": 2,
+        "type_name": "DEDUCCION",
+        "is_vacation": false
+      },
+      {
+        "id": 70,
+        "code": "LNC",
+        "name": "Licencia_No_Remunerada",
+        "counts_for_vacations": false,
+        "affects_days_worked": true,
+        "affects_social_security": true,
+        "type_id": 2,
+        "type_name": "DEDUCCION",
+        "is_vacation": false
+      },
+      {
+        "id": 24,
+        "code": "VACA",
+        "name": "Vacaciones_Disfrute",
+        "counts_for_vacations": true,
+        "affects_days_worked": true,
+        "affects_social_security": true,
+        "type_id": 1,
+        "type_name": "DEVENGO",
+        "is_vacation": true
+      },
+      {
+        "id": 97,
+        "code": "H180",
+        "name": "Hrs_Fest_180",
+        "counts_for_vacations": false,
+        "affects_days_worked": false,
+        "affects_social_security": true,
+        "type_id": 1,
+        "type_name": "DEVENGO",
+        "is_vacation": false
+      },
+      {
+        "id": 98,
+        "code": "RECNOT",
+        "name": "Rec_Noct_Don_215",
+        "counts_for_vacations": false,
+        "affects_days_worked": false,
+        "affects_social_security": true,
+        "type_id": 1,
+        "type_name": "DEVENGO",
+        "is_vacation": false
+      },
+      {
+        "id": 99,
+        "code": "CONEC",
+        "name": "Auxilio_De_Conectividad",
+        "counts_for_vacations": false,
+        "affects_days_worked": false,
+        "affects_social_security": false,
+        "type_id": 1,
+        "type_name": "DEVENGO",
+        "is_vacation": false
+      },
+      {
+        "id": 100,
+        "code": "VACADINERO",
+        "name": "Vacaciones_Dinero",
+        "counts_for_vacations": false,
+        "affects_days_worked": false,
+        "affects_social_security": false,
+        "type_id": 1,
+        "type_name": "DEVENGO",
+        "is_vacation": true
+      },
+      {
+        "id": 101,
+        "code": "HRS",
+        "name": "Horas",
+        "counts_for_vacations": true,
+        "affects_days_worked": false,
+        "affects_social_security": true,
+        "type_id": 1,
+        "type_name": "DEVENGO",
+        "is_vacation": false
+      },
+      {
+        "id": 103,
+        "code": "DNR",
+        "name": "Domingo_No_Remunerado",
+        "counts_for_vacations": false,
+        "affects_days_worked": true,
+        "affects_social_security": true,
+        "type_id": 2,
+        "type_name": "DEDUCCION",
+        "is_vacation": false
+      },
+      {
+        "id": 7,
+        "code": "AUX001",
+        "name": "Auxilio_De_Transporte",
+        "counts_for_vacations": false,
+        "affects_days_worked": false,
+        "affects_social_security": false,
+        "type_id": 1,
+        "type_name": "DEVENGO",
+        "is_vacation": false
+      },
+      {
+        "id": 7,
+        "code": "AUX001",
+        "name": "Auxilio_De_Transporte",
+        "counts_for_vacations": false,
+        "affects_days_worked": false,
+        "affects_social_security": false,
+        "type_id": 1,
+        "type_name": "DEVENGO",
+        "is_vacation": false
+      }
+    ],
+    "total": 29
+  },
+  "message": "OK",
+  "error": null
+}
 ```
-
----
-
-# Definición de Campos
-
-| Campo                       | Tipo          | Descripción                                  |
-| --------------------------- | ------------- | -------------------------------------------- |
-| id                          | integer       | Identificador único del concepto             |
-| name                        | string        | Nombre funcional del concepto                |
-| code                        | string        | Código interno utilizado por el sistema      |
-| type_name                   | string        | Nombre del tipo de concepto                  |
 
 
 ---
