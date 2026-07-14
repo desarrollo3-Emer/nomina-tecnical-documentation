@@ -52,10 +52,8 @@ GET /payroll-concepts?is_retention_aid=false'
 ---
 # Filtro: 
 
-Si envia el query is_retention_aid como true, solo devolvera los conceptos validos para ayudas de retencion 
-
-
----
+Si envia el query is_retention_aid como true, solo devolvera los conceptos validos para ayudas de retencion.
+Si envia el query only_provisions como true, devuelve solo conceptos de provisión.
 
 # Estructura de Respuesta
 
