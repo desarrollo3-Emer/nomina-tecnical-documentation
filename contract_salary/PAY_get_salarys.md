@@ -42,7 +42,7 @@ Las cabeceras `company-nit` y `identification-number` son obligatorias y su exis
         "salary_amount": 2500000.00,
         "start_date": "2026-06-01",
         "end_date": "2026-12-31",
-        "salary_type": "base",
+        "salary_type": "ORDINARIO",
         "is_active": true
       }
     ],

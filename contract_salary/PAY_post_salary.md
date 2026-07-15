@@ -25,7 +25,7 @@ La cabecera `company-nit` debe incluir el NIT de la compañía; por tanto `compa
 {
   "identification_number": 0,
   "salary": 0,
-  "salary_type": "string",
+  "salary_type": "ORDINARIO",
   "start_date": "2026-06-22",
   "end_date": "2026-06-22",
   "change_reason": "string"
@@ -40,7 +40,7 @@ La cabecera `company-nit` debe incluir el NIT de la compañía; por tanto `compa
 | salary_amount  | Debe ser mayor a 0                                    |
 | start_date     | Debe ser menor a `end_date`                          |                        |
 | period overlap | No puede existir solapamiento para el mismo contrato  |
-| salary_type    | Debe ser un valor válido   |
+| salary_type    | Debe ser ORDINARIO o INTEGRAL   |
 
 La cabecera `company-nit` es obligatoria y su existencia/relación debe validarse por el servicio que expone las compañías.
 

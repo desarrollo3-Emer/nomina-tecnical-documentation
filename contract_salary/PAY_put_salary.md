@@ -50,7 +50,7 @@ Actualiza la información de un salario, logrando que el anterior se guardo como
     "identification_number": 123456,
     "company_nit": "123456",
     "salary": "15000000.00",
-    "salary_type": "nuevo",
+    "salary_type": "ORDINARIO",
     "start_date": "2026-06-22",
     "end_date": null,
     "change_reason": null

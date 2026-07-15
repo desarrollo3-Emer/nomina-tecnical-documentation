@@ -30,7 +30,7 @@ Obtiene los detalles de un salario específico por su ID.
     "identification_number": 123456,
     "company_nit": "123456",
     "salary": "1750905.00",
-    "salary_type": "string",
+    "salary_type": "ORDINARIO",
     "start_date": "2026-06-01",
     "end_date": null,
     "change_reason": null
