@@ -40,15 +40,13 @@ GET /api/v1/companies/123456789
 
 ```json
 {
-  "company_nit": "123456789",
-  "legal_name": "Compañía Ejemplo S.A.S.",
-  "trade_name": "Ejemplo",
-  "company_type": "SAS",
-  "address": "Calle Falsa 123",
-  "city": "Bogotá",
-  "country": "Colombia",
-  "phone": "+57 1 2345678",
-  "email": "contacto@ejemplo.com"
+  "id": 1,
+  "name": "Compañía Ejemplo S.A.S.",
+  "nit": "900123456",
+  "verification_digit": "7",
+  "arl_code": "14-11",
+  "document_type": "NI",
+  "exempt_paying_health": true
 }
 ```
 
@@ -56,24 +54,22 @@ GET /api/v1/companies/123456789
 
 ## Campos esperados
 
-| Campo         | Tipo    | Descripción                                      |
-| ------------- | ------- | ------------------------------------------------ |
-| company_nit   | string  | NIT de la compañía                                |
-| legal_name    | string  | Razón social                                      |
-| trade_name    | string  | Nombre comercial                                  |
-| company_type  | string  | Tipo de sociedad (por ejemplo, SAS, LTDA, SA)    |
-| address       | string  | Dirección principal de la compañía                |
-| city          | string  | Ciudad donde está registrada la compañía          |
-| country       | string  | País de la compañía                               |
-| phone         | string  | Teléfono de contacto                               |
-| email         | string  | Correo electrónico de contacto                     |
+| Campo                  | Tipo    | Descripción                                             |
+| ---------------------- | ------- | ------------------------------------------------------- |
+| id                     | integer | Identificador único de la compañía                      |
+| name                   | string  | Nombre de la compañía                                   |
+| nit                    | string  | Número de identificación tributaria (NIT)               |
+| verification_digit     | string  | Dígito de verificación del NIT                          |
+| arl_code               | string  | Código ARL asociado a la compañía.  |
+| document_type          | string  | Tipo de documento. Valor por defecto: `NI`              |
+| exempt_paying_health   | boolean | Indica si la empresa está exenta del pago de salud. Valor por defecto: `true` |
 
 ---
 
 ## Validaciones
 
 * El `company_nit` debe existir en la API de compañías.
-* La respuesta debe incluir `company_nit` y `legal_name` como mínimos.
+* La respuesta debe incluir al menos los campos `id`, `name`, `nit` y `verification_digit`.
 * Si la compañía no existe, la API debe devolver un error claro.
 
 ---
