@@ -35,7 +35,7 @@ GET /pila/operadores
   "success": true,
   "data": [
     {
-      "codigo": "P",
+      "codigo": "84",
       "nombre": "PAGOSIMPLE"
     }
   ]

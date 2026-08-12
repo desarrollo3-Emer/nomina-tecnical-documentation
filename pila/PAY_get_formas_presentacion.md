@@ -35,7 +35,7 @@ GET /pila/formas-presentacion
   "success": true,
   "data": [
     {
-      "codigo": "C",
+      "codigo": "E",
       "descripcion": "Consolidada"
     }
   ]
