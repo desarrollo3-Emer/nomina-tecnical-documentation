@@ -33,8 +33,8 @@ Genera un archivo plano en formato TXT para PILA a partir de uno o varios perío
 | Parámetro         | Tipo   | Obligatorio | Descripción |
 | ----------------- | ------ | ----------- | ----------- |
 | period_ids        | array  | Sí          | IDs de los períodos a consolidar. |
-| operador          | string | No          | Código del operador PILA. |
-| presentation_form | string | No          | Forma de presentación. |
+| operador          | string | SI          | Código del operador PILA. (OBTENER LAS POSIBLES OPCIONES EN SU RUTA) |
+| presentation_form | string | SI          | Forma de presentación.(OBTENER LAS POSIBLES OPCIONES EN SU RUTA) |
 | branch_code       | string | No          | Código de la sucursal. |
 | branch_name       | string | No          | Nombre de la sucursal. |
 
